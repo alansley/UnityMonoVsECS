@@ -8,5 +8,4 @@ public struct ECSParticleSpawnerComponent : IComponentData
     public float2 SpawnRangeX;
     public float2 SpawnRangeY;
     public float2 SpawnRangeZ;
-    public bool   MoveParticles;
 }
