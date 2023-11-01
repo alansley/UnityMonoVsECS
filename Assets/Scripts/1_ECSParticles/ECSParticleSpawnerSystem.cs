@@ -1,25 +1,30 @@
 using System;
+
+using UnityEngine;
 using Unity.Burst;
 using Unity.Collections;
 using Unity.Entities;
 using Unity.Mathematics;
 using Unity.Rendering;
 using Unity.Transforms;
-using UnityEngine;
 
 [BurstCompile]
 public partial struct ECSParticleSpawnerSystem : ISystem
 {
+    private NativeArray<Entity> instances;
+
     [BurstCompile]
     public void OnCreate(ref SystemState state)
     {
-        // This adds a condition to the system updating: the system will not
-        // update unless at least one entity exists having the given component component.
+        // This adds a condition to the system updating: the system will not update unless at least one entity
+        // exists having the given component.
         state.RequireForUpdate<ECSParticleSpawnerComponent>();
     }
 
-    [BurstCompile]
-    public void OnDestroy(ref SystemState state) { }
+    // NOTE: Since Entities v1.0.14 we no longer have to implement every function (even if empty).
+    // SEE: https://docs.unity3d.com/Packages/com.unity.entities@1.0/manual/upgrade-guide.html#update-isystem
+    //[BurstCompile]
+    //public void OnDestroy(ref SystemState state) { }
 
     [BurstCompile]
     public void OnUpdate(ref SystemState state)
@@ -38,7 +43,7 @@ public partial struct ECSParticleSpawnerSystem : ISystem
 
         var prefab = SystemAPI.GetSingleton<ECSParticleSpawnerComponent>().ParticleEntity;
 
-        var instances = state.EntityManager.Instantiate(prefab, particleSpawnerComponent.NumParticles, Allocator.Temp);
+        instances = state.EntityManager.Instantiate(prefab, particleSpawnerComponent.NumParticles, Allocator.Temp);
 
         foreach (var instance in instances)
         {
@@ -51,7 +56,6 @@ public partial struct ECSParticleSpawnerSystem : ISystem
                 Scale    = 1f
             };
             state.EntityManager.SetComponentData(instance, localTransform);
-
 
             var colour = GetRandomFloat4Colour(rng);
             var colourMaterialProperty = new URPMaterialPropertyBaseColor() { Value = colour };

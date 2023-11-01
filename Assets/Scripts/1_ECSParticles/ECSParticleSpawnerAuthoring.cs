@@ -11,6 +11,10 @@ public class ECSParticleSpawnerAuthoring : MonoBehaviour
     [SerializeField] public Vector2 SpawnRangeX;
     [SerializeField] public Vector2 SpawnRangeY;
     [SerializeField] public Vector2 SpawnRangeZ;
+
+    [SerializeField] private int _fewObjectsCount = 1000;
+    [SerializeField] private int _manyObjectsCount = 10000;
+    [SerializeField] private int _lotsObjectsCount = 100000;
 }
 
 /// <summary>

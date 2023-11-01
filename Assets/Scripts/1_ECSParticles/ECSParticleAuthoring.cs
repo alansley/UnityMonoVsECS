@@ -2,7 +2,6 @@ using UnityEngine;
 using Unity.Entities;
 using Unity.Rendering;
 
-
 public class ECSParticleAuthoring : MonoBehaviour { }
 
 public class ECSParticleCubeBaker : Baker<ECSParticleAuthoring>

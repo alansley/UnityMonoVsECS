@@ -40,17 +40,29 @@ public class ParticleSpawnerMono : Singleton<ParticleSpawnerMono>
     [SerializeField] private float _particleMovementSpeed = 0.1f;
     public float ParticleMovementSpeed => _particleMovementSpeed;
 
+    [SerializeField] private int _fewObjectsCount = 1000;
+    [SerializeField] private int _manyObjectsCount = 10000;
+    [SerializeField] private int _lotsObjectsCount = 100000;
+
     /// <summary>
     /// Unity Start hook.
     /// </summary>
     void Start()
     {
-        // Make a note of our start time and seed the random number generator
-        var startTime = DateTime.UtcNow;
         Random.InitState(_rngSeed);
+        PerformSpawnObjects(_numParticles);
+    }
+
+    public void SpawnFewObjects() { PerformSpawnObjects(_fewObjectsCount); }
+    public void SpawnManyObjects() { PerformSpawnObjects(_manyObjectsCount); }
+    public void SpawnLotsObjects() { PerformSpawnObjects(_lotsObjectsCount); }
+
+    private void PerformSpawnObjects(int numObjectsToSpawn)
+    {
+        var startTime = DateTime.UtcNow;
 
         // Create all the prefabs
-        for (int i = 0; i < _numParticles; ++i)
+        for (int i = 0; i < numObjectsToSpawn; ++i)
         {
             // Choose a random world-space position
             float x = Random.Range(_spawnRangeX.x, _spawnRangeX.y);

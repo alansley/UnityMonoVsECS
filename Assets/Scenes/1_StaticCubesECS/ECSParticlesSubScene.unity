@@ -170,11 +170,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ParticlePrefab: {fileID: 8300171952932025133, guid: 178923ef5f860004596743a3ba745cd8,
     type: 3}
-  NumParticles: 100000
+  NumParticles: 10000
   SpawnRangeX: {x: -50, y: 50}
   SpawnRangeY: {x: -50, y: 50}
   SpawnRangeZ: {x: -50, y: 50}
-  MoveParticles: 0
 --- !u!114 &954958049
 MonoBehaviour:
   m_ObjectHideFlags: 0
