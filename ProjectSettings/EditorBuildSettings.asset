@@ -6,9 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/0_MonoParticles.unity
-    guid: 04ee7f39150b05d41988c178f71c813a
-  - enabled: 1
-    path: Assets/Scenes/1_StaticCubesECS.unity
+    path: Assets/Scenes/2_DOTS_ECS_Scene.unity
     guid: 99c9720ab356a0642a771bea13969a05
+  - enabled: 1
+    path: Assets/Scenes/1_MonoBehaviour_Scene.unity
+    guid: 04ee7f39150b05d41988c178f71c813a
   m_configObjects: {}

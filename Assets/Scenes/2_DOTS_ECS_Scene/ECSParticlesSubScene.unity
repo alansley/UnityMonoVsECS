@@ -97,7 +97,8 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000002, guid: 8d45563888f3f79478b36eccefd43082,
+    type: 2}
   m_LightingSettings: {fileID: 0}
 --- !u!196 &4
 NavMeshSettings:
@@ -133,9 +134,8 @@ GameObject:
   m_Component:
   - component: {fileID: 954958047}
   - component: {fileID: 954958048}
-  - component: {fileID: 954958049}
   m_Layer: 0
-  m_Name: ECSParticleSpawnerSystem
+  m_Name: EcsSpawnerSystem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -174,19 +174,9 @@ MonoBehaviour:
   SpawnRangeX: {x: -50, y: 50}
   SpawnRangeY: {x: -50, y: 50}
   SpawnRangeZ: {x: -50, y: 50}
---- !u!114 &954958049
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 954958045}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6ccfab6a0f12fa34790ad0e7db12091f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  RandomSeed: 123
+  FewSpawnCount: 1000
+  ManySpawnCount: 10000
+  LotsSpawnCount: 100000
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

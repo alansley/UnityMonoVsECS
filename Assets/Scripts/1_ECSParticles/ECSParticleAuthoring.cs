@@ -8,10 +8,13 @@ public class ECSParticleCubeBaker : Baker<ECSParticleAuthoring>
 {
     public override void Bake(ECSParticleAuthoring authoring)
     {
-        // Get the entity we'll be adding our component to..
-        Entity e = GetEntity(authoring, TransformUsageFlags.Dynamic);
+        // Create an entity
+        Entity entity = GetEntity(TransformUsageFlags.None);
 
-        // Add a base colour override
-        AddComponent(e, new URPMaterialPropertyBaseColor());
+        // Add a base colour override component
+        AddComponent(entity, new URPMaterialPropertyBaseColor());
+
+        // And add a tag to it so we can easily find all our particles via a query
+        AddComponent(entity, new ECSParticleComponentTag());
     }
 }

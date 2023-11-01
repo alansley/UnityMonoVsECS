@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Entities;
+using Unity.Scenes;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Serialization;
@@ -22,12 +24,45 @@ public class ButtonHandler : MonoBehaviour
 
     public void OnClickLoadMonoBehaviourScene()
     {
+
+        /*
+        SubScene s = FindObjectOfType<SubScene>();
+        if (s && s.IsLoaded)
+        {
+            Debug.Log("Found loaded subscene!");
+
+        }
+        else
+        {
+            Debug.Log("Could not find loaded subscene!");
+        }
+        */
+
+        /*
+        // Unload the current DOTS/ECS scene and load the mono scene when the operation has completed
+        SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene()).completed += handle =>
+        {
+            SceneManager.LoadScene(_monoBehaviourSceneIndex);
+        };
+        */
+
         SceneManager.LoadScene(_monoBehaviourSceneIndex);
+
+
     }
 
     public void OnClickLoadDotsEcsScene()
     {
+        // Unload the current DOTS/ECS scene and load the mono scene when the operation has completed
+        /*
+        SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene()).completed += handle =>
+        {
+            SceneManager.LoadScene(_DotsEcsSceneIndex);
+        };
+        */
+
         SceneManager.LoadScene(_DotsEcsSceneIndex);
+
     }
 
     public void OnClickRespawnFewMono()
